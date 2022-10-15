@@ -1,7 +1,62 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    home: 
+    Scaffold(appBar: AppBar(title: Text("Axis Alignment")),
+    body: Center(
+      child: Container(
+        width: 500,
+        height: 500,
+        decoration: BoxDecoration(border:Border.all(
+          width: 1,
+         color: Colors.red,
+         ),
+         color: Colors.green,
+         borderRadius: BorderRadius.all(Radius.circular(5))),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+          children: [Container( width: 100,
+        height: 100,
+        decoration: BoxDecoration(border:Border.all(
+          width: 1,
+         color: Colors.red,
+         ),
+         color: Colors.yellow,
+         borderRadius: BorderRadius.all(Radius.circular(5)))
+         ),
+         Container( width: 100,
+        height: 100,
+        decoration: BoxDecoration(border:Border.all(
+          width: 1,
+         color: Colors.red,
+         ),
+         color: Colors.red,
+         borderRadius: BorderRadius.all(Radius.circular(5)))
+         ),
+          Container( width: 100,
+        height: 100,
+        decoration: BoxDecoration(border:Border.all(
+          width: 1,
+         color: Colors.red,
+         ),
+         color: Colors.blue,
+         borderRadius: BorderRadius.all(Radius.circular(5)))
+         )
+         ]
+         
+         ),
+         
+      ),
+
+      
+    ),
+    
+    
+  ),
+  )
+  );
 }
 
 class MyApp extends StatelessWidget {
