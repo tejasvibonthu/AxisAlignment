@@ -1,80 +1,92 @@
+import 'package:axis_alignment/screen_one.dart';
+
 import 'package:flutter/material.dart';
 
-void main() {
- 
-  runApp(MaterialApp(
-    home: 
-    Scaffold(appBar: AppBar(title: Text("Axis Alignment")),
-    body: Column(
-      children: [
-      //  children: <Widget>[
-    Text(
-      "mainAxisAlignment: MainAxisAlignment.start",
-      textAlign: TextAlign.left,
-      style: TextStyle(fontWeight: FontWeight.bold ,fontSize: 20),
-    ),
-    Text(
-      "crossAxisAlignment: CrossAxisAlignment.start,",
-      textDirection: TextDirection.ltr,
-      textAlign: TextAlign.left,
-      style: TextStyle(fontWeight: FontWeight.bold , fontSize: 20),
-    ),
-  
-   Center(
-          child: Container(
-            width: 350,
-            height: 350,
-            decoration: BoxDecoration(border:Border.all(
-                   width: 1,
-                  color: Colors.red,
-                  ),
-                  color: Colors.green,
-                  borderRadius: BorderRadius.all(Radius.circular(5))),
-            child: Center(
-              child: Row(
-                       mainAxisAlignment: MainAxisAlignment.start,
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                     children: [Container( width: 100,
-                   height: 100,
-                   decoration: BoxDecoration(border:Border.all(
-                     width: 1,
-                    color: Colors.red,
-                    ),
-                    color: Colors.yellow,
-                    borderRadius: BorderRadius.all(Radius.circular(5)))
-                    ),
-                    Container( width: 100,
-                   height: 100,
-                   decoration: BoxDecoration(border:Border.all(
-                     width: 1,
-                    color: Colors.red,
-                    ),
-                    color: Colors.red,
-                    borderRadius: BorderRadius.all(Radius.circular(5)))
-                    ),
-                     Container( width: 100,
-                   height: 100,
-                   decoration: BoxDecoration(border:Border.all(
-                     width: 1,
-                    color: Colors.red,
-                    ),
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.all(Radius.circular(5)))
-                    )
-                    ]
-                    
-                    ),
-            ),
-          ),
-        ),
-      ]
-      ),
-      
-    ),
-  ),
-  );
-  
+void main(){
+  runApp(MyApp());
 }
+ 
+ // runApp(MaterialApp(
+//     home: 
+//     Scaffold(appBar: AppBar(title: Text("Axis Alignment")),
+//     body: Column(
+//       children: [
+//       //  children: <Widget>[
+//         TextField(
+//   textAlign: TextAlign.left,
+//   maxLines: 3,
+//   decoration: InputDecoration(
+//     hintText: 'Enter Something',
+//     contentPadding: EdgeInsets.all(20.0),
+//   ),
+// ), 
+//     Text(
+//       "mainAxisAlignment: MainAxisAlignment.start",
+//       textAlign: TextAlign.left,
+//       style: TextStyle(fontWeight: FontWeight.bold ,fontSize: 20),
+//     ),
+//     Text(
+//       "crossAxisAlignment: CrossAxisAlignment.start,",
+//       textDirection: TextDirection.ltr,
+//       textAlign: TextAlign.left,
+//       style: TextStyle(fontWeight: FontWeight.bold , fontSize: 20),
+//     ),
+  
+//    Center(
+//           child: Container(
+//             width: 350,
+//             height: 350,
+//             decoration: BoxDecoration(border:Border.all(
+//                    width: 1,
+//                   color: Colors.red,
+//                   ),
+//                   color: Colors.green,
+//                   borderRadius: BorderRadius.all(Radius.circular(5))),
+//             child: Center(
+//               child: Row(
+//                        mainAxisAlignment: MainAxisAlignment.start,
+//                        crossAxisAlignment: CrossAxisAlignment.start,
+//                      children: [Container( width: 100,
+//                    height: 100,
+//                    decoration: BoxDecoration(border:Border.all(
+//                      width: 1,
+//                     color: Colors.red,
+//                     ),
+//                     color: Colors.yellow,
+//                     borderRadius: BorderRadius.all(Radius.circular(5)))
+//                     ),
+//                     Container( width: 100,
+//                    height: 100,
+//                    decoration: BoxDecoration(border:Border.all(
+//                      width: 1,
+//                     color: Colors.red,
+//                     ),
+//                     color: Colors.red,
+//                     borderRadius: BorderRadius.all(Radius.circular(5)))
+//                     ),
+//                      Container( width: 100,
+//                    height: 100,
+//                    decoration: BoxDecoration(border:Border.all(
+//                      width: 1,
+//                     color: Colors.red,
+//                     ),
+//                     color: Colors.blue,
+//                     borderRadius: BorderRadius.all(Radius.circular(5)))
+//                     )
+//                     ]
+                    
+//                     ),
+//             ),
+//           ),
+//         ),
+//       ]
+//       ),
+      
+//     ),
+//   ),
+//   );
+  
+//}
         
      
  
@@ -100,7 +112,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: screen_1(),
     );
   }
 }
