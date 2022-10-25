@@ -14,59 +14,47 @@ import 'list_builder.dart';
 }
 
 class _MyWidgetState extends State<screen_1> {
-  //final userNamesList = [];
- //   List<int> userNamesList = [];
-
-  @override
-  Widget build(BuildContext context) {
+ List<String> carsList = [];
+   @override
+   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("screen1")),
-     
-      body: ListView.builder(  
-       itemCount:2,
-            itemBuilder: ((context, index) {
-            // final state1 = userNamesList[index];
-              // return Container(
-              //    color: Colors.red,
-              //    width: 100,
-              //    height: 100,
-              //    child: ScreenTwo(myCallBack1: (nameVal, mobileNoVal) => print("xx$nameVal  yy$mobileNoVal")),
-                 
-              // );
-             // return ScreenTwo(myCallBack1: (nameVal, mobileNoVal) => Card(child: Text("jksdhfkshla"),));
-             return ScreenTwo(myCallBack1 : (value1 ,value2){
-             
-             Card(child: Text("$value1"),);
-             print(value1);
-             // print("ggdfhsgajfdhsgj",value2);
-
-             });
-             
-            }),
-    ),
-    floatingActionButton: FloatingActionButton(onPressed: () {
-   Navigator.push(
-    context,
-    MaterialPageRoute(
-       builder: (context) => ScreenTwo(myCallBack1: (nameVal, mobileNoVal) => "")),
-     // builder: (context) => ScreenTwo(myCallBack1: (String nameVal, String mobileNoVal) {  },)),
-    );
-   
-  
-     
-
-    },),
-    );
+      body:Container(
+        color: Colors.yellow,
+        child: ListView.builder(
+          itemCount: carsList.length,
+          itemBuilder: (context, index) {
+            return Container(
+              color: Colors.green,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Card(
+                  child: ListTile(
+                    tileColor: Colors.white,
+                    leading: Icon(Icons.car_rental),
+                    title: Text(carsList[index]),
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        Navigator.push(context,
+         MaterialPageRoute(builder: ((context) => 
+         screen_two(myCallBack1: (nameVal, mobileNoVal) {
+         final String result =  '$nameVal   $mobileNoVal';
+          setState(() {
+             carsList.add(result);
+          });
+          },)
+         )
+         ));
+        
+         },
+           child: const Icon(Icons.add)
+         )
+         );
   }
-  showAlert1(String  message){
-  showDialog(context: context, builder: (BuildContext context) {
-    return CupertinoAlertDialog(
-      title: Text(message),
-      actions: [
-        TextButton(onPressed: (){}, child: Text("ok"))
-      ],
-    );
-    
-  });
- }
 }
