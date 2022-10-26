@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
 
-class screen_two extends StatelessWidget {
+class AddDeatils_Item extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-
   final Function (String nameVal , String mobileNoVal) myCallBack1 ;
- screen_two({super.key ,required this.myCallBack1});
-  
-  @override
+ AddDeatils_Item({super.key ,required this.myCallBack1});
+   @override
   Widget build(BuildContext context) {
     TextEditingController _nameController = new TextEditingController();
      TextEditingController _mobileController = new TextEditingController();

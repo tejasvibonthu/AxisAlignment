@@ -1,3 +1,5 @@
+import 'package:axis_alignment/routes/app_pages.dart';
+import 'package:axis_alignment/routes/app_routes.dart';
 import 'package:axis_alignment/screen_one.dart';
 
 import 'package:flutter/material.dart';
@@ -112,7 +114,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: screen_1(),
+     initialRoute: AppRoutes.initial,
+     routes: AppPages.routes,
     );
   }
 }
