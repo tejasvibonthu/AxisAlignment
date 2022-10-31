@@ -1,3 +1,4 @@
+import 'package:axis_alignment/profile_page.dart';
 import 'package:axis_alignment/routes/app_routes.dart';
 import 'package:axis_alignment/screen_one.dart';
 import 'package:axis_alignment/screen_two.dart';
@@ -8,6 +9,7 @@ class AppPages {
   static Map<String , WidgetBuilder> get routes {
     return {
       AppRoutes.initial:(context) => CarsListView(),
+      AppRoutes.ProfileDetails:(context) => ProfileDetails(),
       AppRoutes.AddDeatils:(context) => AddDeatils_Item(myCallBack1: (nameVal, mobileNoVal) {
        AppConstants.nameValuIs = nameVal;
           AppConstants.mobileNo = mobileNoVal;
