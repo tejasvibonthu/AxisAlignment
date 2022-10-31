@@ -76,18 +76,16 @@ class _ProfileDetailsState extends State<ProfileDetails> {
   }
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     fetchDataFromJson();
-    
-  }
+    }
   fetchDataFromJson() async{
     String data = await rootBundle.loadString("assets/profile.json");
     setState(() {
          jsonResult = json.decode(data);
     });
- 
-    // print("result is $jsonResult");
+ //print("result is $jsonResult");
     // print(jsonResult["cuser_name"]);
-
-  }
+ }
 }
