@@ -18,32 +18,27 @@ class _SharedPrefPracticeState extends State<SharedPrefPractice> {
         child: Center(
           child: Column(
             children: [
-            TextButton(onPressed: (() {
-           final name = SharedPreferencesClass().writeTheDta("name", "Tejasvi");
+            TextButton(onPressed: (() async {
+           final name =  await SharedPreferencesClass().writeTheDta("name", "Tejasvi");
              print("name$name");
            // writeTheDta("", "Tejasvi");
           }
           ), child: Text("Save user name")
           ),
-          TextButton(onPressed: (() {
-           final valIs =  SharedPreferencesClass().readTheData("name");
+          TextButton(onPressed: (() async{
+           final valIs =  await SharedPreferencesClass().readTheData("name");
            print("storedValis$valIs");
            // writeTheDta("", "Tejasvi");
           }
           ), child: Text("get user name")
           ),
-          TextButton(onPressed: (() {
-            SharedPreferencesClass().deleteTheData("name");
+          TextButton(onPressed: (() async{
+            await SharedPreferencesClass().deleteTheData("name");
            // writeTheDta("", "Tejasvi");
           }
           ), child: Text("delete user name")
           )],
-          
-          
-          
-          
-          
-          ),
+         ),
         ),
       ),
     );
