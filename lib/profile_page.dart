@@ -38,7 +38,8 @@ class _ProfileDetailsState extends State<ProfileDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextButton(onPressed: (() {
-                     getVillagesList();
+                     requestApi();
+                 //  getVillagesList();
                   }), child: Text("click me"))
                 // Padding(
                  
@@ -94,29 +95,22 @@ class _ProfileDetailsState extends State<ProfileDetails> {
 //  print("result is $jsonResult");
 //     // print(jsonResult["cuser_name"]);
 //  }
-   getVillagesList() async{
-//step1: create request url with base url and endpoint
-//https://19cghmc.cgg.gov.in/myghmcwebapi/Grievance/getGrievanceStatusCitizen
-//https://19cghmc.cgg.gov.in/myghmcwebapi/Grievance/getMpin?MOBILE_NO=9100923132
-    final requestUrl =
-        "https://19cghmc.cgg.gov.in/myghmcwebapi/Grievance/" + "getGrievanceStatusCitizen";
-    print(requestUrl);
-//step2:create payload if request POST,PUT, and other except GET
-    final requestPayload = {
-    "compId": "1610201024643", "userid": "cgg@ghmc", "password": "ghmc@cgg@2018", "mobileno": "7036266270"
-    };
-  //  print(requestPayload);
-////step3: create headers,parameters and authourization,if in case present
-//step4:dio or http, use one of it to connect server
+ void requestApi() async {
+    final requestUrl =  "https://uat3.cgg.gov.in/cmnwebservicesmobile/attwsapi/versionCheck";
+    final requestPayLoad = {"appName": "MJPHRMS",
+"mobileType": "Android"};
     final _dioObject = Dio();
-      try {
-        final _response =
-            await  _dioObject.post(requestUrl , data: requestPayload);
-        print(_response);
-      } on DioError catch (e) {
-        print(e.error);
-      }
+    try {
+      final _response = await _dioObject.post(
+        requestUrl,
+        data: requestPayLoad,
+      );
+      print(_response.data);
+    } on DioError catch (e) {
+      print(e);
     }
+ }
+
   }
   
 

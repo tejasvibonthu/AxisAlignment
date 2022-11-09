@@ -1,3 +1,5 @@
+import 'package:axis_alignment/AppConstants/api_constants.dart';
+import 'package:axis_alignment/routes/app_pages.dart';
 import 'package:axis_alignment/simple_list_item.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
@@ -23,6 +25,7 @@ class _SimpleListState extends State<SimpleList> {
         appBar: AppBar(title: Text("List View1")),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
+          
           child: ListView.builder(
             itemCount:  _grievanceResponse?.grievance?.length,
             itemBuilder: ((context, index) {
@@ -32,29 +35,16 @@ class _SimpleListState extends State<SimpleList> {
            )
         ),
     ));
-  }
- showAlert(String  message){
-  showDialog(context: context, builder: (BuildContext context) {
-    return CupertinoAlertDialog(
-      title: Text(message),
-      actions: [
-        TextButton(onPressed: (){}, child: Text("ok"))
-      ],
-    );
     
-  });
-   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getVillagesList();
   }
+  //   @override
+   void initState() {
+     super.initState();
+    getVillagesList();
+   }
 
- }
    getVillagesList() async{
 //step1: create request url with base url and endpoint
-//https://19cghmc.cgg.gov.in/myghmcwebapi/Grievance/getGrievanceStatusCitizen
-//https://19cghmc.cgg.gov.in/myghmcwebapi/Grievance/getMpin?MOBILE_NO=9100923132
     final requestUrl =
         "https://19cghmc.cgg.gov.in/myghmcwebapi/Grievance/" + "getGrievanceStatusCitizen";
     print(requestUrl);
@@ -69,15 +59,32 @@ class _SimpleListState extends State<SimpleList> {
       try {
         final _response =
             await  _dioObject.post(requestUrl , data: requestPayload);
-        print(_response);
-        final _responseString = GrivenaceModel.fromJson(_response.data);
-        setState(() {
-         this._grievanceResponse = _responseString;
-        });
+           final  response  = GrivenaceModel.fromJson(_response.data);
+           setState(() {
+             _grievanceResponse = response;
+           });
+
+        print("resdssss$_grievanceResponse");
       } on DioError catch (e) {
-        print(e.error);
+        print(e);
       }
     }
+void requestApi() async {
+   final requestUrl =  ApiConstants.BaseUrl + ApiConstants.endPoint;
+    final requestPayLoad = {"appName": "MJPHRMS",
+"mobileType": "Android"};
+    final _dioObject = Dio();
+    try {
+      final _response = await _dioObject.post(
+        requestUrl,
+        data: requestPayLoad,
+      );
+      print(_response.data);
+    } on DioError catch (e) {
+      print(e);
+    }
+}
+ 
 }
 
 
