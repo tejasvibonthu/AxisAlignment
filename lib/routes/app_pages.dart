@@ -1,3 +1,4 @@
+import 'package:axis_alignment/SQfliteSample/pages/student_details.dart';
 import 'package:axis_alignment/profile_page.dart';
 import 'package:axis_alignment/routes/app_routes.dart';
 import 'package:axis_alignment/screen_one.dart';
@@ -14,6 +15,7 @@ class AppPages {
       // ignore: equal_keys_in_map
       AppRoutes.ProfileDetails:(context) => ProfileDetails(),
       AppRoutes.simpleList:(context) => SimpleList(),
+       AppRoutes.studentDetailsPage: (context) => StudentPage(),
       // ignore: equal_keys_in_map
       AppRoutes.sharedPref:(context) => SharedPrefPractice(),
       AppRoutes.AddDeatils:(context) => AddDeatils_Item(myCallBack1: (nameVal, mobileNoVal) {

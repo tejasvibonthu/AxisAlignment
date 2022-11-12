@@ -1,3 +1,4 @@
+import 'package:axis_alignment/SQfliteSample/helpers/database_helper.dart';
 import 'package:axis_alignment/routes/app_pages.dart';
 import 'package:axis_alignment/routes/app_routes.dart';
 import 'package:axis_alignment/screen_one.dart';
@@ -100,6 +101,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+   // final db = DatabaseHelper.instance().database
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
