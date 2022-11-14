@@ -1,16 +1,18 @@
+import 'package:axis_alignment/Provoiders/student_list_provider.dart';
 import 'package:axis_alignment/SQfliteSample/helpers/database_helper.dart';
 import 'package:axis_alignment/routes/app_pages.dart';
 import 'package:axis_alignment/routes/app_routes.dart';
 import 'package:axis_alignment/screen_one.dart';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
- 
- // runApp(MaterialApp(
-//     home: 
+
+// runApp(MaterialApp(
+//     home:
 //     Scaffold(appBar: AppBar(title: Text("Axis Alignment")),
 //     body: Column(
 //       children: [
@@ -22,7 +24,7 @@ void main(){
 //     hintText: 'Enter Something',
 //     contentPadding: EdgeInsets.all(20.0),
 //   ),
-// ), 
+// ),
 //     Text(
 //       "mainAxisAlignment: MainAxisAlignment.start",
 //       textAlign: TextAlign.left,
@@ -34,7 +36,7 @@ void main(){
 //       textAlign: TextAlign.left,
 //       style: TextStyle(fontWeight: FontWeight.bold , fontSize: 20),
 //     ),
-  
+
 //    Center(
 //           child: Container(
 //             width: 350,
@@ -77,23 +79,19 @@ void main(){
 //                     borderRadius: BorderRadius.all(Radius.circular(5)))
 //                     )
 //                     ]
-                    
+
 //                     ),
 //             ),
 //           ),
 //         ),
 //       ]
 //       ),
-      
+
 //     ),
 //   ),
 //   );
-  
-//}
-        
-     
- 
 
+//}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -101,24 +99,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-   // final db = DatabaseHelper.instance().database
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-     initialRoute: AppRoutes.initial,
-     routes: AppPages.routes,
-    );
+    // final db = DatabaseHelper.instance().database
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => StudentsListProvider()),
+        ],
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          initialRoute: AppRoutes.initial,
+          routes: AppPages.routes,
+        ));
   }
 }
 
@@ -151,9 +144,6 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter += 2;
-      print("object");
-       print("object");
-        print("object");
     });
   }
 
